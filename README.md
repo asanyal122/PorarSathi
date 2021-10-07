@@ -7,7 +7,7 @@
 </h1>
 
 <p>
-    Students can signup and login using gmail.Data will be stored annd fetched from Firebase.
+    Students can signup and login using gmail.Data will be stored and fetched from Firebase.
 </p>
 
 <p>
