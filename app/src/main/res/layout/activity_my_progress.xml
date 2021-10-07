@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProgressActivity"
+    android:orientation="vertical">
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/queryphy"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="@string/subphy"
+                android:backgroundTint="#c1185b"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/white">
+            </Button>
+
+            <Button
+                android:id="@+id/querylife"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="@string/sublife"
+                android:backgroundTint="#d84315"
+                android:layout_column="2"
+                android:textColor="@android:color/white">
+            </Button>
+
+
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/querymath"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="@string/submath"
+                android:backgroundTint="#4a148c"
+                android:layout_column="1"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/white">
+            </Button>
+
+            <Button
+                android:id="@+id/querychem"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="@string/subchem"
+                android:backgroundTint="#64dd17"
+                android:layout_column="2">
+            </Button>
+
+
+
+        </TableRow>
+
+        <TableRow
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/queryweak"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Weak"
+                android:backgroundTint="#fa2d41"
+                android:layout_column="1"
+                android:layout_marginRight="10dp">
+            </Button>
+
+            <Button
+                android:id="@+id/querystrong"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Strong"
+                android:backgroundTint="#12c4ad"
+                android:layout_column="2">
+            </Button>
+
+
+        </TableRow>
+
+    </TableLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="10dp">
+
+
+
+
+
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/progressrcv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

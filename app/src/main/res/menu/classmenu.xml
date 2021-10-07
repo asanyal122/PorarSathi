@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_myprofile"
+        android:title="My Profile"/>
+    <item
+        android:id="@+id/menu_myprogress"
+        android:title="My Progress"/>
+    <item
+        android:id="@+id/menu_mycoins"
+        android:title="My Coins"/>
+    <item
+        android:id="@+id/menu_class9"
+        android:title="Class 9"/>
+    <item
+        android:id="@+id/menu_class10"
+        android:title="Class 10"/>
+    <item
+        android:id="@+id/menu_class12"
+        android:title="Class 12"/>
+    <item
+        android:id="@+id/menu_neet"
+        android:title="NEET"/>
+    <item
+        android:id="@+id/menu_jenpauh"
+        android:title="JENPAUH"/>
+
+    <item
+        android:id="@+id/menu_results"
+        android:title="Results"/>
+
+    <item
+        android:id="@+id/menu_notice"
+        android:title="Notice"/>
+
+    <item
+        android:id="@+id/menu_share"
+        android:title="Share"/>
+    <item
+        android:id="@+id/menu_rating"
+        android:title="Rating"/>
+    <item
+        android:id="@+id/menu_signout"
+        android:title="Sign Out"/>
+
+</menu>

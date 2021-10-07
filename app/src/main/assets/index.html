@@ -1,0 +1,1194 @@
+<html>
+<head>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <script>
+    //Change this portion
+    //set time limit for test in seconds
+    var time_limit=900;
+    //Set all correct options in oreder
+    var answer=new Array('a','b','c','b','b','c','b','b','a','d','c','d','c','c','a','b','a','c','b','a');
+    //Total no of questions
+    no_of_questions = 20;
+
+
+
+
+
+    //Do not change anything from here
+    var idinterval=0;
+    var idtimeout=0;
+    var seconds=time_limit;
+    var selected=0;
+    var score=0;
+    var no_correct_ans=0;
+    var non_attempted=0;
+    var wrong_ans=0;
+
+
+
+
+
+    //Handle option option selected
+    function fun(x)
+    {
+
+
+        selected++;
+
+        var quenstion_no=parseInt(x);
+        var correct_ans=answer[quenstion_no];
+        var your_answer=x[x.length-1];
+        var i=0;
+        var options=new Array("a","b","c","d");
+        document.getElementById(quenstion_no+correct_ans).style.backgroundColor='lime';
+        document.getElementById(quenstion_no+correct_ans).style.color='black'
+        for(i=0;i<4;i++)
+        {
+            document.getElementById(quenstion_no+options[i]).disabled='true';
+        }
+
+
+        if(your_answer == correct_ans)
+        {
+            score+=2;
+            no_correct_ans++;
+            //document.getElementById(ans).style.backgroundColor='green';
+        }
+        else
+        {
+            wrong_ans++;
+            document.getElementById(x).style.backgroundColor='red';
+            document.getElementById(x).style.color='white'
+
+        }
+        var s="[Score "+score.toString()+" ] [ Correct "+no_correct_ans.toString()+" ] [ Wrong "+wrong_ans.toString()+" ] [ Non attempted "+(answer.length-selected).toString()+" ]";
+        document.getElementById('ans'+quenstion_no).hidden=false;
+        //document.getElementById("score_board").innerText=s;
+        //document.getElementById("score_board").innerText.style.color="white";
+
+    }
+
+
+
+
+    function popupscore()
+    {
+        var scr="Your Score is :" + score.toString();
+        document.getElementById("hs").innerHTML=scr;
+        alert(scr);
+    }
+
+
+    function enableall()
+    {
+
+
+        var i=0;
+        var j=0;
+        var options=new Array("a","b","c","d");
+
+        for(i=0;i<no_of_questions;i++)
+        {
+
+            for(j=0;j<4;j++)
+            {
+                document.getElementById(i.toString()+options[j]).disabled=false;
+            }
+        }
+        document.getElementById("submittest").disabled=false;
+    }
+
+
+    function dis()
+    {
+
+
+        var i=0;
+        var j=0;
+        var options=new Array("a","b","c","d");
+
+        for(i=0;i<no_of_questions;i++)
+        {
+
+            for(j=0;j<4;j++)
+            {
+                document.getElementById(i.toString()+options[j]).disabled=true;
+            }
+        }
+        document.getElementById("submittest").disabled=true;
+    }
+
+
+    function disableall()
+    {
+        var i=0;
+        var j=0;
+        var options=new Array("a","b","c","d");
+
+        //disable start button
+        document.getElementById("starttimebtn").disabled=true;
+
+        //stop and clear timer
+        window.clearInterval(idinterval);
+        window.clearTimeout(idtimeout);
+        document.getElementById("submittest").disabled=true;
+
+
+        for(i=0;i<no_of_questions;i++)
+        {
+            document.getElementById('ans'+i.toString()).hidden=false;
+
+            document.getElementById(i.toString()+answer[i]).style.backgroundColor='lime';
+            document.getElementById(i.toString()+answer[i]).style.color='black';
+            for(j=0;j<4;j++)
+            {
+                document.getElementById(i.toString()+options[j]).disabled='true';
+            }
+        }
+        popupscore();
+        Android.setScore("Class10set1",score);
+    }
+
+    function printtime()
+    {
+        seconds--;
+        document.getElementById("hs").innerHTML=seconds.toString();
+    }
+
+    function starttest()
+    {
+        enableall();
+        idinterval = window.setInterval(printtime,1000);
+        idtimeout=window.setTimeout(disableall,time_limit*1000);
+        document.getElementById("starttimebtn").disabled=true;
+    }
+</script>
+
+
+    <style>
+button{
+
+
+}
+</style>
+</head>
+
+<body onload="dis()" onselectstart="return false" oncopy="return false" oncut="return false" onpaste="return false">
+
+
+
+<nav class="navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <ul class="list-group">
+                <li id="score_board" class="list-group-item list-group-item-info">
+                    <h3 id="hs" class="list-group-item-header text-center">
+                        This is Rated Test
+                    </h3>
+                </li>
+                <li class="list-group-item">
+                    <input id="candidate_name" type="text" placeholder="ENTER YOUR NAME" required>
+                    <input id="candidate_school" type="text" placeholder="ENTER SCHOOL" required>
+                    <input type="submit" id="starttimebtn" class=" btn-block btn-success text-white" value="Start Test" onclick="starttest()">
+                    <input type="button" id="submittest" class="btn-block btn-info text-white" onclick="disableall()" value="Submit Test">
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="jumbotron">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h4 class="list-group-item-header text-center">
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </h4>
+        </li>
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header  text-center">
+                <strong>(1) CNG এর তাপন মুল্য </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="0a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) 55 K J/g
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="0b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) 50 K J/g
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="0c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) 45 K J/g
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item" >
+            <button id="0d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d)  17 K J/g
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans0" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (a) <br>
+                55 K J/g
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (2) নীচের কোনটি 300K এর সমান ?</strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="1a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) 37<sup>o</sup>C
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="1b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) 27<sup>o</sup>C
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="1c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  0<sup>o</sup>C
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="1d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) 273<sup>o</sup>C
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans1" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (b) <br>
+                27<sup>o</sup>C
+
+                কারন, T = 273 + t <br>
+                T = 273 + 27<br>
+                T =300 K<br>
+            </strong>
+        </li>
+    </ul>
+</div>
+
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong>(3) নিম্নের যে রাসায়নিক পদার্থটি ওজোনস্তর ধ্বংসের জন্য দায়ী সেটি হল—</strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="2a"  type="button" class="btn btn-basic  btn-block "  onclick="fun(this.id)">
+                <strong>
+                    (a) ক্লোরোফর্ম
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="2b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) আয়োডোফর্ম
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="2c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) CFC
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="2d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) অ্যাসিটিলিন
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans2" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                Answer: (c) <br>
+                CFC
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header  text-center">
+                <strong>(4) CFC অতিবেগুনি রশ্মির আঘাতে বিভাজিত হয়ে উৎপন্ন করে </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="3a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) সক্রিয় কার্বন পরমাণু
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="3b" type="button" class="btn btn btn-basic btn-block text-wrap" onclick="fun(this.id)">
+                <strong>
+                    (b) সক্রিয় ক্লোরিন পরমাণু
+
+
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="3c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) সক্রিয় ফ্লুরিন পরমাণু
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item" >
+            <button id="3d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) সক্রিয় হাইড্রোজেন পরমাণু
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans3" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                Answer: (b)
+                (b) সক্রিয় ক্লোরিন পরমাণু  সক্রিয় ক্লোরিন পরমাণু সক্রিয় ক্লোরিন পরমাণু  সক্রিয় ক্লোরিন পরমাণু সক্রিয় ক্লোরিন পরমাণু  সক্রিয় ক্লোরিন পরমাণু সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু
+                সক্রিয় ক্লোরিন পরমাণু
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header  text-center">
+                <strong> (5) সুপারসনিক প্লেন থেকে নির্গত নাইট্রোজেন যে অক্সাইডটি ওজোন স্তরের ব্যাপক ক্ষতি করে সেটি হল— </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="4a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) NO<SUB>2</SUB>
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="4b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) N<SUB>2</SUB>0
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="4c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) NO
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="4d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) N<SUB>2</SUB>0<SUB>4</SUB>
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans4" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                Answer: (b) <br>
+                N<SUB>2</SUB>0
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (6) কোটি গ্রিনহাউস গ্যাস—  </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="5a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) 0<sub>2</sub>
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="5b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) N<sub>2</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="5c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) 0<sub>3</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="5d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) H<sub>2</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans5" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                Answer: (c) <br>
+                0<sub>3</sub>
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong>   (7) নীচের কোনটি গ্রিনহাউস গ্যাস নয়—   </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="6a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) CO<sub>2</sub>
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="6b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) NO<sub>2</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="6c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) CH<sub>4</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="6d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d)  N<sub>2</sub>O
+                </strong>
+            </button>
+        </li>
+        <li id="ans6" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                Answer: (b)  <br>
+                NO<sub>2</sub>
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong>   (8) গ্লোবাল ওয়ার্মিং-এ বিভিন্ন গ্রিন হাউস গ্যাসের অবদানের সঠিক ক্রমানুসার হল - </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="7a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) CO<sub>2</sub> > H<sub>2</sub>0 > CH<sub>4</sub> > CFC
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="7b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) CO<sub>2</sub> > CH<sub>4</sub> > CFC > H<sub>2</sub>0
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="7c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) CO<sub>2</sub> > H<sub>2</sub>0 > CFC > CH<sub>4</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="7d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) CO<sub>2</sub> > CFC > H<sub>2</sub>0 > CH<sub>4</sub>
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans7" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                Answer: (b) <br>
+                CO<sub>2</sub> > CH<sub>4</sub> > CFC > H<sub>2</sub>0
+            </strong>
+        </li>
+    </ul>
+</div>
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (9) DNES এর পুরো নাম ? </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="8a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) Department of Non-conventional Energy
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="8b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) Demand of Non-conventional Energy
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="8c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  Department of conventional Energy
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="8d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) Department of Not-conventional Energy
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans8" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (a) <br>
+                Department of Non-conventional Energy
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong></strong>  (10) তাপন মুল্যের S.I একক-</strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="9a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) Kg/J
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="9b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) KG/g
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="9c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  K/jg
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="9d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) KJ/g
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans9" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (d) <br>
+                KJ/g
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong>(11) বনচাঁড়াল এর পার্শ্ব পত্রে দেখা যায়— </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="10a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) ফটোন্যাস্টিক চলন
+                </strong>
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="10b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) ফটোন্যাস্টিক
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="10c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  প্রকরণ চলন
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="10d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) সিসমেন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans10" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (c) <br>
+                প্রকরণ চলন
+            </strong>
+        </li>
+    </ul>
+</div>
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (12) ইন্ডিয়ান টেলিগ্রাফ নামে পরিচিত -</strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="11a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) লজ্জাবতী
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="11b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) মটর
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="11c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  কুমারিকা
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="11d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) বনচাড়াল
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans11" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (d) <br>
+                বনচাড়াল
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong>  (13) নিচের কোন উদ্ভিদে তুমি গমন লক্ষ করবে? </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="12a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) প্যারামেসিয়াম
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="12b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) ইউগ্লিনা
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="12c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  ক্ল্যামাইডোমোনাস
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="12d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) স্পঞ্জ
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans12" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (c) <br>
+                ক্ল্যামাইডোমোনাস
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (14) লজ্জাবতী-কে স্পর্শ করলে পাতার পত্রগুলি তৎক্ষণাৎ মুড়ে যায়,একে বলে—  </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="13a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) নিকটিন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="13b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) হাইপোন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="13c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  সিসমোন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="13d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) কেমোন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans13" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (c) <br>
+                সিসমোন্যাস্টিক চলন
+            </strong>
+        </li>
+    </ul>
+</div>
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header  text-center">
+                <strong> (15) ফোটোট্যাকটিক চলনের উদাহরণ হল—  </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="14a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) ভ্লভক্স
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="14b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) মসের শুক্রাণু
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="14c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  পাতাশ্যাওলা
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="14d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) সূর্যমুখী।
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans14" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (a) <br>
+                ভ্লভক্স
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (16) আমরুল পাতায় যে চলন দেখা যায়—  </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="15a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) নিকটিন্যাস্টি
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="15b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b)  ফটোন্যাস্টি
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="15c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  থার্মোন্যাস্টি
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="15d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) সিসমোন্যাস্টি
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans15" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (b) <br>
+                ফটোন্যাস্টি
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (17) উদ্ভিদের সাড়া পরিমাপক যন্ত্রটি হল—  </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="16a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a)ক্রেসকোগ্রাফ
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="16b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) আর্কমিটার
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="16c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  সিসমোগ্রাফ
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="16d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) হাইগ্রোমিটার।
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans16" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (a) <br>
+                ক্রেসকোগ্রাফ
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header  text-center">
+                <strong> (18) জগদীশ চন্দ্র বসু ব্যবহৃত উদ্ভিদের চলন পরিমাপক যন্ত্রটির নাম  </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="17a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a)  সিসমোগ্রাফ
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="17b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) থার্মোগ্রাফি
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="17c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c) ক্রেস্কোগ্রাফ
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="17d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) সেন্টিগ্রাফ
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans17" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (c) <br>
+                ক্রেস্কোগ্রাফ
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (19) কোন প্রকার চলন কে হেলিওট্রপিক চলন বলে ? </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="18a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) ফোটোট্রপিক
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="18b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b)  জিওট্রপিক
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="18c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  কেমােট্রপিক
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="18d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d) থিগমােট্রপিক
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans18" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (b) <br>
+
+                জিওট্রপিক
+            </strong>
+        </li>
+    </ul>
+</div>
+
+<div class="jumbotron">
+    <ul class="list-group">
+
+        <li class="list-group-item list-group-item-danger text-center">
+            <h4 class="list-group-item-header text-center">
+                <strong> (20) জুই ফুলের পাপড়ি রাতের বেলায় প্রস্ফুটিত হয়—এটি কোন্ প্রকার চলন ? </strong>
+            </h4>
+        </li>
+        <li class="list-group-item">
+            <button id="19a"  type="button" class="btn btn-basic  btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (a) ফটো ন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+        <li class="list-group-item">
+            <button id="19b" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (b) কেমোন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item">
+            <button id="19c"  type="button" class="btn btn-basic btn-block"  onclick="fun(this.id)">
+                <strong>
+                    (c)  থার্মো ন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li class="list-group-item" >
+            <button id="19d" type="button" class="btn btn-basic btn-block" onclick="fun(this.id)">
+                <strong>
+                    (d)  সিসমে ন্যাস্টিক চলন
+                </strong>
+            </button>
+        </li>
+
+        <li id="ans19" class="list-group-item list-group-item-success" hidden>
+            <strong>
+                answer: (a) <br>
+
+                ফটো ন্যাস্টিক চলন
+            </strong>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+</body>

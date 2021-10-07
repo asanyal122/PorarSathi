@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <GridLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="10dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/theory_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_bulb">
+
+                </ImageView>
+                <TextView
+                    android:id="@+id/theory_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="theory"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/theory_image">
+                </TextView>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="10dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/saq_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_bulb">
+
+                </ImageView>
+                <TextView
+                    android:id="@+id/saq_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Question\nAnswer"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/saq_image">
+                </TextView>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="10dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/video_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_bulb">
+
+                </ImageView>
+                <TextView
+                    android:id="@+id/video_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Video"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/video_image">
+                </TextView>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="10dp"
+            android:elevation="30dp"
+            app:cardCornerRadius="10dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/test_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_bulb">
+
+                </ImageView>
+                <TextView
+                    android:id="@+id/test_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Practice Set"
+                    android:textColor="@color/colorAccent"
+                    android:gravity="center"
+                    android:textSize="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/test_image">
+                </TextView>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+    </GridLayout>
+</ScrollView>

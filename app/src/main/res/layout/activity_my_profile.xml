@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyProfileActivity">
+
+    <EditText
+        android:id="@+id/nameedittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name">
+
+    </EditText>
+    <EditText
+        android:id="@+id/classedittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Class">
+
+    </EditText>
+    <EditText
+        android:id="@+id/schooledittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="School">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/updateprofile"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_gravity="center">
+
+    </Button>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_light"
+        android:text="* Remeber changing class will"
+        android:textAlignment="center">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_light"
+        android:text="remove your current progress"
+        android:textAlignment="center">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_light"
+        android:text="* After changing class go"
+        android:textAlignment="center">
+
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_light"
+        android:text="back and open again"
+        android:textAlignment="center">
+
+
+    </TextView>
+
+</LinearLayout>

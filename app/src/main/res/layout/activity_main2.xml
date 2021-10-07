@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    tools:context=".Main2Activity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#6c63ff"
+            android:gravity="center"
+            android:textSize="15dp">
+
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tpractice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Practice"
+            android:textColor="#6c63ff"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:background="@color/colorWhite">
+
+        </TextView>
+
+
+        <HorizontalScrollView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/h1"
+            android:layout_marginTop="30dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                >
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card9"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+
+                    >
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+
+                        >
+
+
+                        <TextView
+                            android:id="@+id/t9"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="@string/class_9_b"
+                            android:textColor="#F857A6"
+                            android:textSize="20dp"
+                            android:gravity="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+
+
+                        <Button
+                            android:id="@+id/btn9phy"
+                            android:layout_width="106dp"
+
+                            android:layout_height="102dp"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:onClick="fun"
+                            android:text="@string/subphy"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:layout_below="@+id/t9"
+                            android:layout_alignParentLeft="true"
+                            />
+
+                        <Button
+                            android:id="@+id/btn9life"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/sublife"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:layout_below="@+id/t9"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/back_grad_facebook"
+                            />
+
+                        <Button
+                            android:id="@+id/btn9math"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/submath"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:layout_below="@+id/btn9phy"
+                            android:layout_alignParentLeft="true"
+                            android:background="@drawable/back_grad_soundcloud"
+                            />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card10"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+
+
+                    android:layout_toEndOf="@id/card9"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite">
+
+
+                        <TextView
+                            android:id="@+id/t10"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="@string/class_10_b"
+                            android:textColor="@color/colorFacebook"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+
+
+                        <Button
+                            android:id="@+id/btn10phy"
+                            android:layout_width="106dp"
+
+                            android:layout_height="102dp"
+                            android:layout_below="@id/t10"
+                            android:layout_alignParentLeft="true"
+                            android:layout_margin="10dp"
+
+                            android:background="@drawable/back_grad_daytripper"
+                            android:onClick="fun"
+                            android:text="@string/subphy"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp" />
+
+                        <Button
+                            android:id="@+id/btn10life"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/sublife"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/t10"
+                            android:layout_alignParentRight="true"/>
+
+                        <Button
+                            android:id="@+id/btn10math"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/submath"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_soundcloud"
+                            android:layout_below="@id/btn10phy"
+                            android:layout_alignParentLeft="true"/>
+
+
+
+                    </RelativeLayout>
+
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card12"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+
+
+                    android:layout_toEndOf="@id/card10"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite">
+
+
+                        <TextView
+                            android:id="@+id/t12"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="@string/class_12_b"
+                            android:textColor="#F857A6"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+
+
+                        <Button
+                            android:id="@+id/btn12phy"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/subphy"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_alignParentLeft="true"
+                            android:layout_below="@id/t12"/>
+
+                        <Button
+                            android:id="@+id/btn12life"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/subbio"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/t12"
+                            android:layout_alignParentRight="true"/>
+
+                        <Button
+                            android:id="@+id/btn12chem"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/subchem"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_soundcloud"
+                            android:layout_below="@+id/btn12phy"
+                            android:layout_alignParentLeft="true"/>
+
+                        <Button
+                            android:id="@+id/btn12math"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/submath"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_mango"
+                            android:layout_below="@+id/btn12life"
+                            android:layout_alignParentRight="true"/>
+
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </HorizontalScrollView>
+
+
+        <HorizontalScrollView
+            android:id="@+id/h2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/updates"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        >
+
+
+
+
+
+                        <Button
+                            android:id="@+id/btnupdates"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/timings"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="15dp"
+                            android:onClick="funres"
+                            android:background="@drawable/back_grad_martini"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"/>
+
+
+                        <Button
+                            android:id="@+id/btnresults"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/results"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="12dp"
+                            android:onClick="funres"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"/>
+
+                        <Button
+                            android:id="@+id/btnshare"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="@string/share"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="17dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_mango"
+                            android:layout_below="@+id/btnupdates"
+                            android:layout_alignParentLeft="true"/>
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card9mock"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_toEndOf="@id/updates"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        >
+
+
+                        <TextView
+                            android:id="@+id/tclass9mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="@string/class_9_b"
+                            android:textColor="#6c63ff"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tclass9mocktest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="MOCK TEST"
+                            android:textColor="#6c63ff"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_below="@id/tclass9mock">
+
+                        </TextView>
+
+                        <Button
+                            android:id="@+id/btn9mockrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Compete"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/tclass9mocktest"
+                            android:layout_alignParentLeft="true"/>
+
+                        <Button
+                            android:id="@+id/btn9mockunrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Answer Key"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_below="@id/tclass9mocktest"
+                            android:layout_alignParentRight="true"/>
+
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card10mock"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_toEndOf="@id/card9mock"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        >
+
+
+                        <TextView
+                            android:id="@+id/tclass10mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="@string/class_10_b"
+                            android:textColor="@color/colorFacebook"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tclass10mocktest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="MOCK TEST"
+                            android:textColor="@color/colorFacebook"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_below="@id/tclass10mock">
+
+                        </TextView>
+
+                        <Button
+                            android:id="@+id/btn10mockrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Compete"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/tclass10mocktest"
+                            android:layout_alignParentLeft="true"/>
+
+                        <Button
+                            android:id="@+id/btn10mockunrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Answer Key"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_below="@id/tclass10mocktest"
+                            android:layout_alignParentRight="true"/>
+
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card12mock"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_toEndOf="@id/card10mock"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        >
+
+
+                        <TextView
+                            android:id="@+id/tclass12mock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="@string/class_12_b"
+                            android:textColor="#6C63FF"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tclass12mocktest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="MOCK TEST"
+                            android:textColor="#6c63ff"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_below="@id/tclass12mock">
+
+                        </TextView>
+
+                        <Button
+                            android:id="@+id/btn12mockrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Compete"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/tclass12mocktest"
+                            android:layout_alignParentLeft="true"/>
+
+                        <Button
+                            android:id="@+id/btn12mockunrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Answer Key"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_below="@id/tclass12mocktest"
+                            android:layout_alignParentRight="true"/>
+
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardnurmock"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_toEndOf="@id/card12mock"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp">
+
+
+                    <RelativeLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        >
+
+
+                        <TextView
+                            android:id="@+id/tclassnurmock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="JENPAUH"
+                            android:textColor="@color/colorFacebook"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tclassnurmocktest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="MOCK TEST"
+                            android:textColor="@color/colorFacebook"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_below="@id/tclassnurmock">
+
+                        </TextView>
+
+                        <Button
+                            android:id="@+id/btnnurmockrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Compete"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/tclassnurmocktest"
+                            android:layout_alignParentLeft="true"/>
+
+                        <Button
+                            android:id="@+id/btnnurmockunrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Answer Key"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_below="@id/tclassnurmocktest"
+                            android:layout_alignParentRight="true"/>
+
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardneetmock"
+                    android:layout_width="250dp"
+                    android:layout_height="300dp"
+
+                    android:layout_toEndOf="@id/cardnurmock"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginBottom="56dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="10dp"
+                    tools:ignore="MissingClass">
+
+
+                    <RelativeLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhite"
+                        >
+
+
+                        <TextView
+                            android:id="@+id/tclassneetmock"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="NEET"
+                            android:textColor="#6c66ff"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_alignParentTop="true">
+
+                        </TextView>
+                        
+                        <TextView
+                            android:id="@+id/tclassneetmocktest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@color/colorWhite"
+                            android:text="MOCK TEST"
+                            android:textColor="#6c66ff"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_below="@id/tclassneetmock">
+
+                        </TextView>
+
+                        <Button
+                            android:id="@+id/btnneetmockrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Compete"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_facebook"
+                            android:layout_below="@id/tclassneetmocktest"
+                            android:layout_alignParentLeft="true"/>
+
+                        <Button
+                            android:id="@+id/btnneetmockunrated"
+                            android:layout_margin="10dp"
+
+                            android:layout_width="106dp"
+                            android:layout_height="102dp"
+                            android:text="Answer Key"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="13dp"
+                            android:onClick="fun"
+                            android:background="@drawable/back_grad_daytripper"
+                            android:layout_below="@id/tclassneetmocktest"
+                            android:layout_alignParentRight="true"/>
+
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </HorizontalScrollView>
+
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-8853789616007557/2745312838">
+        </com.google.android.gms.ads.AdView>
+
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>
